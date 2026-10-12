@@ -11,12 +11,14 @@
         :root {
             --bg-deep: #05070a;
             --bg-card: #0f141d;
-            --border-gold: rgba(212, 175, 55, 0.2);
+            --border-gold: rgba(212, 175, 55, 0.25);
             --gold-primary: #d4af37;
             --gold-light: #f3e5ab;
             --gold-hover: #aa8c2c;
             --text-main: #ffffff;
             --text-muted: #94a3b8;
+            --whatsapp-green: #25d366;
+            --telegram-blue: #229ed9;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -36,7 +38,7 @@
 
         /* Header & Navigation */
         header {
-            background: rgba(5, 7, 10, 0.85);
+            background: rgba(5, 7, 10, 0.9);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
@@ -47,7 +49,7 @@
         .navbar {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -61,24 +63,19 @@
             color: var(--text-main);
         }
 
-        .logo-emblem {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, #1a1f2c, #0a0d14);
-            border: 1px solid var(--gold-primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: var(--gold-primary);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        .site-logo {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
 
         .logo-text h1 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: var(--text-main);
             text-transform: uppercase;
         }
@@ -86,13 +83,13 @@
         .logo-text small {
             font-size: 0.7rem;
             color: var(--gold-primary);
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
@@ -111,17 +108,35 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 7rem 2rem;
+            padding: 6rem 2rem;
             background: radial-gradient(circle at center, #121824 0%, var(--bg-deep) 70%);
             border-bottom: 1px solid rgba(255,255,255,0.03);
-            position: relative;
+        }
+
+        .hero-logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .hero-logo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px solid var(--gold-primary);
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.35);
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+            50% { box-shadow: 0 0 35px rgba(212, 175, 55, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
         }
 
         .hero h2 {
-            font-size: 3.2rem;
-            margin-bottom: 1.2rem;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
         }
 
         .hero h2 span {
@@ -131,18 +146,23 @@
         }
 
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             margin-bottom: 2.5rem;
             color: var(--text-muted);
-            max-width: 650px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .gold-btn {
-            background: linear-gradient(135deg, var(--gold-primary), #b89728);
-            color: #05070a;
-            padding: 0.85rem 2.2rem;
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
             border: none;
             border-radius: 8px;
             font-size: 0.95rem;
@@ -152,17 +172,42 @@
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+            gap: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
-        .gold-btn:hover {
+        .btn-wa {
+            background: var(--whatsapp-green);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+        }
+
+        .btn-wa:hover {
+            background: #1ebd56;
+            transform: translateY(-2px);
+        }
+
+        .btn-tg {
+            background: var(--telegram-blue);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(34, 158, 217, 0.25);
+        }
+
+        .btn-tg:hover {
+            background: #1b8ac2;
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-primary), #b89728);
+            color: #05070a;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-gold:hover {
             background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
         }
 
         /* Containers & Sections */
@@ -203,8 +248,6 @@
             border-radius: 12px;
             padding: 2.5rem 2rem;
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
         }
 
         .card:hover {
@@ -302,15 +345,15 @@
     <header>
         <div class="navbar">
             <a href="#" class="logo-area">
-                <div class="logo-emblem"><i class="fas fa-chess-rook"></i></div>
+                <img src="logo.jpg" alt="Logo" class="site-logo">
                 <div class="logo-text">
                     <h1>UK Supply Hub</h1>
-                    <small>Elite Logistics</small>
+                    <small>The Pro Seller • LM Hub</small>
                 </div>
             </a>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#services">RSS Packages</a></li>
+                <li><a href="#services">Shop</a></li>
                 <li><a href="#tools">Guild Tools</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -319,11 +362,19 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-logo-container">
+            <img src="logo.jpg" alt="Ultimate Kingdom Supply Hub" class="hero-logo">
+        </div>
         <h2>Ultimate Kingdom <span>Supply Hub</span></h2>
-        <p>Premium Lords Mobile resource packages, accurate vault calculators, and automated alliance management tools.</p>
-        <a href="https://t.me/princejoy2007" target="_blank" class="gold-btn">
-            <i class="fab fa-telegram-plane"></i> Message on Telegram
-        </a>
+        <p>Trusted Lords Mobile resource packages, fast logistics, professional support, and automated alliance management tools.</p>
+        <div class="btn-group">
+            <a href="https://wa.me/2349162100832" target="_blank" class="btn btn-wa">
+                <i class="fab fa-whatsapp"></i> WhatsApp Order
+            </a>
+            <a href="https://t.me/princejoy2007" target="_blank" class="btn btn-tg">
+                <i class="fab fa-telegram-plane"></i> Telegram Chat
+            </a>
+        </div>
     </section>
 
     <!-- Services / RSS Section -->
@@ -333,23 +384,26 @@
             <div class="card">
                 <h3>Food & Stone Vault</h3>
                 <p>Heavy-duty bulk allocations tailored for expedited structural updates and continuous troop growth.</p>
-                <a href="https://t.me/princejoy2007" target="_blank" class="gold-btn" style="width: 100%; text-align: center; padding: 0.7rem;">
-                    <i class="fab fa-telegram-plane"></i> Order via Telegram
-                </a>
+                <div class="btn-group" style="justify-content: flex-start;">
+                    <a href="https://wa.me/2349162100832" target="_blank" class="btn btn-wa" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">WhatsApp</a>
+                    <a href="https://t.me/princejoy2007" target="_blank" class="btn btn-tg" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Telegram</a>
+                </div>
             </div>
             <div class="card">
                 <h3>Wood & Ore Reserves</h3>
                 <p>High-purity supplies required for defense upgrades, advanced research tracking, and gear optimization.</p>
-                <a href="https://t.me/princejoy2007" target="_blank" class="gold-btn" style="width: 100%; text-align: center; padding: 0.7rem;">
-                    <i class="fab fa-telegram-plane"></i> Order via Telegram
-                </a>
+                <div class="btn-group" style="justify-content: flex-start;">
+                    <a href="https://wa.me/2349162100832" target="_blank" class="btn btn-wa" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">WhatsApp</a>
+                    <a href="https://t.me/princejoy2007" target="_blank" class="btn btn-tg" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Telegram</a>
+                </div>
             </div>
             <div class="card">
                 <h3>Gold Bundles</h3>
                 <p>Exclusive high-tier gold reserves designated for elite academy research milestones and high-value contracts.</p>
-                <a href="https://t.me/princejoy2007" target="_blank" class="gold-btn" style="width: 100%; text-align: center; padding: 0.7rem;">
-                    <i class="fab fa-telegram-plane"></i> Order via Telegram
-                </a>
+                <div class="btn-group" style="justify-content: flex-start;">
+                    <a href="https://wa.me/2349162100832" target="_blank" class="btn btn-wa" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">WhatsApp</a>
+                    <a href="https://t.me/princejoy2007" target="_blank" class="btn btn-tg" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Telegram</a>
+                </div>
             </div>
         </div>
 
@@ -373,16 +427,21 @@
         <!-- Contact Section -->
         <div class="contact-box" id="contact">
             <h3>Ready to Restock?</h3>
-            <p>Connect directly for custom package volumes, bot coordination, or alliance resource schedules.</p>
-            <a href="https://t.me/princejoy2007" target="_blank" class="gold-btn">
-                <i class="fab fa-telegram-plane"></i> Open Telegram Chat
-            </a>
+            <p>Connect instantly with your pro seller for custom package volumes, bot coordination, or alliance resource schedules.</p>
+            <div class="btn-group">
+                <a href="https://wa.me/2349162100832" target="_blank" class="btn btn-wa">
+                    <i class="fab fa-whatsapp"> +234 916 210 0832</i>
+                </a>
+                <a href="https://t.me/princejoy2007" target="_blank" class="btn btn-tg">
+                    <i class="fab fa-telegram-plane"> @princejoy2007</i>
+                </a>
+            </div>
         </div>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Ultimate Kingdom Supply Hub. All rights reserved. Built for supreme alliance logistics.</p>
+        <p>&copy; 2026 Ultimate Kingdom Supply Hub. Trusted • Fast • Support.</p>
     </footer>
 
 </body>
