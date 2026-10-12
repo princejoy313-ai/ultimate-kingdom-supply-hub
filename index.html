@@ -1,95 +1,389 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#10121b">
-<meta name="description" content="Ultimate Kingdom Supply HUB — Lords Mobile services, calculators, monster hunting notes and guild tools.">
-<title>Ultimate Kingdom Supply HUB</title>
-<style>
-:root{--bg:#0b0d14;--panel:#151a27;--gold:#f4bd55;--gold2:#ffe1a0;--text:#f4f5f8;--muted:#aab1c2;--line:#2a3042}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top right,#292039,transparent 38%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Arial,sans-serif}a{color:inherit}
-button,.btn{cursor:pointer;border:0;border-radius:11px;padding:10px 14px;font:inherit;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}.primary{background:linear-gradient(135deg,var(--gold),#f59f36);color:#17120a}.secondary{background:#252b3b;color:var(--text);border:1px solid #3a4259}
-.wrap{width:min(1120px,92%);margin:auto}.topbar{position:sticky;top:0;z-index:9;background:#0b0d14ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:12px 0}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:950}.logo{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#ffe1a0,#bc7622);color:#211605;font-size:22px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.8px}.navlinks{display:flex;gap:12px;flex-wrap:wrap}.navlinks a{text-decoration:none;color:var(--muted);font-size:12px;font-weight:750}.navlinks a:hover{color:var(--gold)}
-.hero{padding:55px 0 35px}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}.eyebrow,.pill{display:inline-flex;border:1px solid #72582f;background:#211b13;color:var(--gold2);border-radius:999px;padding:6px 10px;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase}.hero h1{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.03;letter-spacing:-2px;margin:18px 0}.hero h1 span{color:var(--gold)}.hero p,.muted{color:var(--muted)}.hero p{font-size:18px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.hero-card,.card{background:linear-gradient(155deg,#1b2030,#131722);border:1px solid var(--line);border-radius:18px;padding:19px}.hero-card{border-radius:24px;background:linear-gradient(150deg,#201b2b,#141824);padding:24px}.crest{font-size:48px}.hero-card h3{color:var(--gold2)}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stats div{padding:12px;background:#ffffff08;border:1px solid var(--line);border-radius:11px}.stats b{display:block}.stats small,.small{font-size:12px;color:var(--muted)}
-section{padding:32px 0;scroll-margin-top:85px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}.section-head h2{margin:0;font-size:clamp(1.7rem,3vw,2.4rem)}.section-head p{margin:5px 0 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card h3{margin:4px 0 8px}.card p{color:var(--muted)}.icon{font-size:26px}.price-list{list-style:none;padding:0;margin:12px 0}.price-list li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #ffffff0e}.price-list li:last-child{border:0}.price{color:var(--gold2);font-weight:900;white-space:nowrap}
-.order-layout{display:grid;grid-template-columns:1fr .8fr;gap:15px;align-items:start}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:13px;font-weight:800}.field input,.field select,.field textarea,.search{width:100%;padding:11px;border:1px solid #394156;background:#0f121b;color:var(--text);border-radius:10px;font:inherit}.field textarea{min-height:75px}.totalbox{position:sticky;top:88px}.total{font-size:2.2rem;font-weight:950;color:var(--gold2)}.notice{border-left:3px solid var(--gold);padding:10px 12px;background:#f4bd550c;color:var(--muted);font-size:13px;border-radius:0 9px 9px 0}.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #ffffff10}.row code{color:var(--gold2);overflow-wrap:anywhere}.tool-grid,.payments{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.payments{grid-template-columns:repeat(3,1fr)}.result{background:#0c1018;border:1px solid var(--line);border-radius:10px;padding:11px;margin-top:10px;color:var(--gold2);font-weight:800}.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.guide{display:flex;flex-direction:column}.guide button{align-self:start;margin-top:auto}.payment{background:#131722;border:1px solid var(--line);border-radius:15px;padding:17px}.payment b{display:block;color:var(--gold2);font-size:18px}.payment small{color:var(--muted)}.monster-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.monster{background:#0f121b;border:1px solid var(--line);border-radius:12px;padding:12px}.monster h4{margin:0 0 6px;color:var(--gold2)}.monster p{margin:4px 0;font-size:13px}.tag{font-size:11px;color:var(--gold2);border:1px solid #72582f;border-radius:99px;padding:3px 7px;display:inline-block}.command-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 16px}
-footer{border-top:1px solid var(--line);padding:26px 0 38px;color:var(--muted)}.footrow{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.float{position:fixed;right:16px;bottom:16px;z-index:10;box-shadow:0 8px 25px #0008}
-@media(max-width:850px){.hero-grid,.order-layout{grid-template-columns:1fr}.navlinks{display:none}.grid,.guides{grid-template-columns:repeat(2,1fr)}.totalbox{position:static}}@media(max-width:560px){.grid,.guides,.tool-grid,.payments,.fields,.monster-list,.command-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.section-head{align-items:start;flex-direction:column}.hero{padding-top:38px}.hero h1{letter-spacing:-1px}}
-</style></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Kingdom Supply Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-deep: #05070a;
+            --bg-card: #0f141d;
+            --border-gold: rgba(212, 175, 55, 0.2);
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-hover: #aa8c2c;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(5, 7, 10, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo-emblem {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #1a1f2c, #0a0d14);
+            border: 1px solid var(--gold-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+
+        .logo-text h1 {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .logo-text small {
+            font-size: 0.7rem;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 7rem 2rem;
+            background: radial-gradient(circle at center, #121824 0%, var(--bg-deep) 70%);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h2 span {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gold-btn {
+            background: linear-gradient(135deg, var(--gold-primary), #b89728);
+            color: #05070a;
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gold-btn:hover {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Containers & Sections */
+        .container {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 24px;
+            background: var(--gold-primary);
+            border-radius: 3px;
+        }
+
+        /* Cards Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Bot Commands Panel */
+        .command-panel {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-gold);
+        }
+
+        .command-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .command-row:last-child {
+            border-bottom: none;
+        }
+
+        .cmd-code {
+            font-family: monospace;
+            color: var(--gold-light);
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .cmd-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: linear-gradient(135deg, #0f141d, #1a2230);
+            border: 1px solid var(--border-gold);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .contact-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: #030406;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.03);
+            margin-top: 5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
 <body>
-<header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><span class="logo">⚔</span><span>ULTIMATE KINGDOM<small>SUPPLY HUB</small></span></a><nav class="navlinks"><a href="#shop">Shop</a><a href="#order">Order</a><a href="#tools">Calculators</a><a href="#guides">Monster Guide</a><a href="#commands">Guild Commands</a><a href="#payments">Payments</a></nav><a class="btn primary" href="#order">Order Now ↗</a></div></header>
-<main>
-<section class="hero" id="home"><div class="wrap hero-grid"><div><span class="eyebrow">⚜ Lords Mobile Services</span><h1>Build your kingdom.<br><span>Stock your war.</span></h1><p>Your hub for Lords Mobile RSS, kill services, bot subscriptions, boosts, calculators and guild tools. Choose a service and send your request directly through WhatsApp.</p><div class="actions"><a class="btn primary" href="#shop">Explore Services ↓</a><a class="btn secondary" href="https://wa.me/2349162100832" target="_blank" rel="noopener">WhatsApp Us</a></div><p class="small">Prices are in USD unless marked otherwise. Confirm availability and final quote before payment.</p></div><aside class="hero-card"><div class="crest">🏰</div><span class="pill">Supply • Support • Strategy</span><h3>Welcome to the HUB</h3><p>Simple ordering, clear prices, and direct contact with the shop.</p><div class="stats"><div><b>📦 RSS</b><small>Resource packs</small></div><div><b>⚔️ Kills</b><small>Kill services</small></div><div><b>🤖 Bots</b><small>Subscriptions</small></div><div><b>🧮 Tools</b><small>Planning aids</small></div></div></aside></div></section>
 
-<section id="shop"><div class="wrap"><div class="section-head"><div><h2>Shop & Services</h2><p>Pick a service to add it to your order.</p></div><span class="pill">KD 1–1900 • New kingdoms may be available</span></div><div class="grid">
-<article class="card"><div class="icon">📦</div><h3>RSS Supply</h3><p>Resource packs for your account or guild.</p><ul class="price-list"><li><span>Full Bank RSS</span><span class="price">$0.50</span></li><li><span>44442 Pack</span><span class="price">$0.40</span></li><li><span>44440 Pack</span><span class="price">$0.29</span></li><li><span>4B Food</span><span class="price">$0.19</span></li><li><span>44444 Bundle</span><span class="price">Ask to confirm</span></li></ul><button class="primary add" data-service="Full Bank RSS">Add Full Bank</button><button class="secondary add" data-service="44444 Bundle — confirm price">Ask about 44444</button><p class="small">44444 price and exact bundle contents need dealer confirmation. Existing prices above are unchanged.</p></article>
-<article class="card"><div class="icon">⚔️</div><h3>Kill & KvK Services</h3><p>T1 kill services and KvK options. New KvK points services require a quote.</p><ul class="price-list"><li><span>1B T1 Kills</span><span class="price">$5.00</span></li><li><span>100M T1 Kills</span><span class="price">$1.50</span></li><li><span>1M T1 Kills</span><span class="price">$0.80</span></li><li><span>KvK Kill Services</span><span class="price">Same rates</span></li><li><span>KvK Solo Points</span><span class="price">Ask</span></li><li><span>KvK Guild Points</span><span class="price">Ask</span></li></ul><button class="primary add" data-service="1B T1 Kills">Add 1B T1 Kills</button><button class="secondary add" data-service="KvK Solo Points — request quote">Ask about KvK points</button></article>
-<article class="card"><div class="icon">🤖</div><h3>Bot Services</h3><p>Ask us to confirm current availability and setup details before paying.</p><ul class="price-list"><li><span>Help Bot</span><span class="price">$20 / month</span></li><li><span>Bank Bot • 1 month</span><span class="price">$2</span></li><li><span>Bank Bot • 3 months</span><span class="price">$5</span></li><li><span>Bank Bot • 12 months</span><span class="price">$20</span></li><li><span>War / Rein Bot</span><span class="price">$3</span></li></ul><button class="primary add" data-service="Bank Bot Subscription — 1 Month">Add Bank Bot</button><p class="small">Possible customer extras: limited-time redeem-code claiming and 45% off repeat bank-bot attacks after 3 days. <b>Not active offers until confirmed.</b></p></article>
-<article class="card"><div class="icon">👑</div><h3>Boost Services</h3><p>Leader prison / altar boost. Attack by customer or by bot, depending on selected option.</p><ul class="price-list"><li><span>30 Leader Boost • customer attack</span><span class="price">$3</span></li><li><span>30 Leader Boost • bot attack</span><span class="price">$4</span></li></ul><button class="primary add" data-service="30 Leader Boost — customer attack">Add Boost</button></article>
-<article class="card"><div class="icon">🏦</div><h3>Other Services</h3><p>Available by request; confirm details and final quote first.</p><ul class="price-list"><li><span>Bank Rental</span><span class="price">Ask</span></li><li><span>EXP Services</span><span class="price">Ask</span></li><li><span>Tracker Accounts</span><span class="price">Ask</span></li></ul><button class="secondary add" data-service="Other Services — request quote">Request a Quote</button></article>
-<article class="card"><div class="icon">💬</div><h3>Need something else?</h3><p>Tell us what you need. We'll confirm the price and availability before you pay.</p><a class="btn secondary" href="https://wa.me/2349162100832?text=Hi%20Ultimate%20Kingdom%20Supply%20HUB%2C%20I%20want%20to%20ask%20about%20another%20service." target="_blank" rel="noopener">Ask on WhatsApp</a></article>
-</div><p class="notice" style="margin-top:14px">Dealer-confirmation list: 44444 price and bundle contents; KvK Solo/Guild Points availability and pricing; redeem-code claiming; 45% repeat-attack discount and its exact terms. These are shown as quote/possible offers, not guaranteed commitments.</p></div></section>
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo-area">
+                <div class="logo-emblem"><i class="fas fa-chess-rook"></i></div>
+                <div class="logo-text">
+                    <h1>UK Supply Hub</h1>
+                    <small>Elite Logistics</small>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#services">RSS Packages</a></li>
+                <li><a href="#tools">Guild Tools</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
-<section id="order"><div class="wrap"><div class="section-head"><div><h2>Order Builder</h2><p>Add items, adjust quantities, then send your request through WhatsApp.</p></div></div><div class="order-layout"><div class="card"><div class="fields"><div class="field full"><label for="service">Service</label><select id="service"><option value="">Choose a service…</option></select></div><div class="field"><label for="qty">Quantity</label><input id="qty" type="number" min="1" step="1" value="1"></div><div class="field"><label for="kingdom">Kingdom (optional)</label><input id="kingdom" placeholder="e.g. KD 1234"></div><div class="field"><label for="ign">In-game name (optional)</label><input id="ign" placeholder="Your IGN"></div><div class="field"><label for="pay">Preferred payment</label><select id="pay"><option>Binance (USDT)</option><option>UPI / INR (where available)</option><option>PayPal (where available)</option><option>Ask me about payment</option></select></div><div class="field full"><label for="notes">Notes (optional)</label><textarea id="notes" placeholder="Resource split, timing, service details…"></textarea></div></div><div class="actions"><button class="primary" id="addItem">＋ Add to Order</button><button class="secondary" id="clear">Clear Order</button></div><div id="cart" class="muted" style="margin-top:14px">No items added yet.</div></div><aside class="card totalbox"><span class="pill">Order Summary</span><h3>Your request</h3><div id="total" class="total">$0.00</div><p class="small">Items marked “Ask” have no fixed price; the shop will quote them separately.</p><div class="notice">This creates a WhatsApp message only. It does not charge you or confirm an order. Wait for availability and final payment instructions.</div><div class="actions"><button class="primary" id="send">Send Order to WhatsApp ↗</button></div></aside></div></div></section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Ultimate Kingdom <span>Supply Hub</span></h2>
+        <p>Premium Lords Mobile resource packages, accurate vault calculators, and automated alliance management tools.</p>
+        <a href="https://t.me/princejoy2007" target="_blank" class="gold-btn">
+            <i class="fab fa-telegram-plane"></i> Message on Telegram
+        </a>
+    </section>
 
-<section id="tools"><div class="wrap"><div class="section-head"><div><h2>Calculators</h2><p>Quick planning tools. Results are estimates, not official in-game data. All calculations run in this browser.</p></div></div><div class="tool-grid">
-<div class="card"><div class="icon">⏱️</div><h3>Speedup Calculator</h3><div class="fields"><div class="field"><label for="days">Days</label><input id="days" type="number" min="0" value="0"></div><div class="field"><label for="hours">Hours</label><input id="hours" type="number" min="0" value="0"></div><div class="field"><label for="minutes">Minutes</label><input id="minutes" type="number" min="0" value="0"></div></div><div class="result" id="speedResult"></div></div>
-<div class="card"><div class="icon">💎</div><h3>Gem Cost Calculator</h3><p>Enter a rate that your supplier quoted.</p><div class="fields"><div class="field"><label for="gemUnits">Units of 1,000 gems</label><input id="gemUnits" type="number" min="0" value="100"></div><div class="field"><label for="gemRate">Price per 1,000 gems ($)</label><input id="gemRate" type="number" min="0" step="0.01" value="0.0355"></div></div><div class="result" id="gemResult"></div></div>
-<div class="card"><div class="icon">⭐</div><h3>EXP Calculator</h3><p>Enter values from your own game screen.</p><div class="fields"><div class="field"><label for="expTarget">Target EXP</label><input id="expTarget" type="number" min="0" value="1000000"></div><div class="field"><label for="expCurrent">Current EXP</label><input id="expCurrent" type="number" min="0" value="0"></div></div><div class="result" id="expResult"></div></div>
-<div class="card"><div class="icon">🛡️</div><h3>Troop Training Planner</h3><p>Basic estimate from your own baseline time and speed bonus.</p><div class="fields"><div class="field"><label for="troops">Troops to train</label><input id="troops" type="number" min="0" value="100000"></div><div class="field"><label for="perTroop">Seconds per troop</label><input id="perTroop" type="number" min="0" step="0.0001" value="1"></div><div class="field full"><label for="boost">Training speed bonus (%)</label><input id="boost" type="number" min="0" value="0"></div></div><div class="result" id="trainResult"></div></div>
-<div class="card"><div class="icon">📅</div><h3>30-Day Gem Forecast</h3><p>Enter your average daily gems from regular sources and weekly event gems. This is an estimate, not a promise of future rewards.</p><div class="fields"><div class="field"><label for="colosseum">Colosseum gems per claim</label><input id="colosseum" type="number" min="0" value="0"></div><div class="field"><label for="guildGifts">Daily guild gifts (gems)</label><input id="guildGifts" type="number" min="0" value="0"></div><div class="field"><label for="monsterGems">Daily monster hunt gems</label><input id="monsterGems" type="number" min="0" value="0"></div><div class="field"><label for="dailyOther">Other daily gems</label><input id="dailyOther" type="number" min="0" value="0"></div><div class="field full"><label for="weeklyEvents">Total estimated weekly event gems</label><input id="weeklyEvents" type="number" min="0" value="0"></div><div class="field"><label for="troveDeposit">Trove deposit (gems)</label><input id="troveDeposit" type="number" min="0" value="0"></div><div class="field"><label for="troveRate">Estimated 30-day Trove return (%)</label><input id="troveRate" type="number" min="0" value="0"></div></div><div class="actions"><button class="primary" id="predictGems">Predict 30 Days</button><button class="secondary" id="clearGems">Clear</button></div><div class="result" id="forecastResult">Enter your own estimates and tap Predict.</div><p class="small">Colosseum estimate assumes a claim every 3 hours (8 claims/day). Adjust your entries to reflect your actual routine. Trove estimate uses the return percentage you enter.</p></div>
-</div></div></section>
+    <!-- Services / RSS Section -->
+    <main class="container" id="services">
+        <h2 class="section-title">Resource (RSS) Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Food & Stone Vault</h3>
+                <p>Heavy-duty bulk allocations tailored for expedited structural updates and continuous troop growth.</p>
+                <a href="https://t.me/princejoy2007" target="_blank" class="gold-btn" style="width: 100%; text-align: center; padding: 0.7rem;">
+                    <i class="fab fa-telegram-plane"></i> Order via Telegram
+                </a>
+            </div>
+            <div class="card">
+                <h3>Wood & Ore Reserves</h3>
+                <p>High-purity supplies required for defense upgrades, advanced research tracking, and gear optimization.</p>
+                <a href="https://t.me/princejoy2007" target="_blank" class="gold-btn" style="width: 100%; text-align: center; padding: 0.7rem;">
+                    <i class="fab fa-telegram-plane"></i> Order via Telegram
+                </a>
+            </div>
+            <div class="card">
+                <h3>Gold Bundles</h3>
+                <p>Exclusive high-tier gold reserves designated for elite academy research milestones and high-value contracts.</p>
+                <a href="https://t.me/princejoy2007" target="_blank" class="gold-btn" style="width: 100%; text-align: center; padding: 0.7rem;">
+                    <i class="fab fa-telegram-plane"></i> Order via Telegram
+                </a>
+            </div>
+        </div>
 
-<section id="guides"><div class="wrap"><div class="section-head"><div><h2>Monster Hunting Guide</h2><p>Search 24 common monster names and open a lineup planning card. Verify hero choices against current game updates and your own hero levels.</p></div></div><input class="search" id="monsterSearch" placeholder="Search monsters…"><div class="monster-list" id="monsterList" style="margin-top:12px"></div><p class="notice" style="margin-top:14px">Accuracy note: these are lineup planning suggestions, not a guaranteed copy of your dealer's exact lineup table. For each monster, match physical/magic damage to its defense and use your strongest suitable heroes. Please test lineups in-game before relying on them.</p></div></section>
+        <!-- Guild Commands Section -->
+        <h2 class="section-title" id="tools" style="margin-top: 5rem;">Automated Guild Bot Commands</h2>
+        <div class="command-panel">
+            <div class="command-row">
+                <span class="cmd-code">!rss check</span>
+                <span class="cmd-desc">Inspect live vault capacity and available balances.</span>
+            </div>
+            <div class="command-row">
+                <span class="cmd-code">!deposit [amount]</span>
+                <span class="cmd-desc">Trigger resource routing back into the alliance bank bot.</span>
+            </div>
+            <div class="command-row">
+                <span class="cmd-code">!withdraw [tier]</span>
+                <span class="cmd-desc">Request fast automated allocation for strategic deployments.</span>
+            </div>
+        </div>
 
-<section id="commands"><div class="wrap"><div class="section-head"><div><h2>Guild Bank Command Guide</h2><p>67 searchable help entries and message templates. Copy examples, then check your own bot's syntax and permissions.</p></div></div><div class="card"><input class="search" id="commandSearch" placeholder="Search commands or topics…"><div id="commandList" class="command-grid"></div><p class="small">Important: this is a helper guide, not an official command list for every bank bot. Command names, parameters and permissions differ between bots. Confirm exact syntax with your bot provider before running a command.</p></div></div></section>
+        <!-- Contact Section -->
+        <div class="contact-box" id="contact">
+            <h3>Ready to Restock?</h3>
+            <p>Connect directly for custom package volumes, bot coordination, or alliance resource schedules.</p>
+            <a href="https://t.me/princejoy2007" target="_blank" class="gold-btn">
+                <i class="fab fa-telegram-plane"></i> Open Telegram Chat
+            </a>
+        </div>
+    </main>
 
-<section id="payments"><div class="wrap"><div class="section-head"><div><h2>Payment Methods</h2><p>Contact the shop for current payment details before sending funds.</p></div></div><div class="payments"><div class="payment"><span class="icon">🟡</span><b>Binance</b><small>USDT / supported Binance Pay options. Ask for the correct payment ID or network before sending.</small></div><div class="payment"><span class="icon">🇮🇳</span><b>UPI / INR</b><small>Available where supported. Confirm current UPI details and final INR amount with the shop.</small></div><div class="payment"><span class="icon">💙</span><b>PayPal</b><small>Where available. Confirm the account can receive your payment and check fees first.</small></div></div><p class="notice" style="margin-top:14px">Never send funds to an unverified address. Confirm amount, method, network, recipient and delivery details in WhatsApp first. This website does not process payments.</p></div></section>
-</main>
-<footer><div class="wrap footrow"><div><strong style="color:var(--text)">⚔ Ultimate Kingdom Supply HUB</strong><div class="small">Independent Lords Mobile services shop. Not affiliated with IGG.</div></div><div><a href="https://wa.me/2349162100832" target="_blank" rel="noopener">WhatsApp: +234 916 210 0832</a><div class="small">Prices and availability may change. Confirm before payment.</div></div><div class="small">© <span id="year"></span> Ultimate Kingdom Supply HUB</div></div></footer><a class="btn primary float" href="https://wa.me/2349162100832" target="_blank" rel="noopener">☏ WhatsApp</a>
-<script>
-const WA='https://wa.me/2349162100832';
-const services=[['Full Bank RSS',.5],['44442 Pack',.4],['44440 Pack',.29],['4B Food',.19],['44444 Bundle — confirm price',null],['1B T1 Kills',5],['100M T1 Kills',1.5],['1M T1 Kills',.8],['KvK Solo Points — request quote',null],['KvK Guild Points — request quote',null],['Help Bot — 1 Month',20],['Bank Bot Subscription — 1 Month',2],['Bank Bot Subscription — 3 Months',5],['Bank Bot Subscription — 12 Months',20],['War / Rein Bot',3],['30 Leader Boost — customer attack',3],['30 Leader Boost — bot attack',4],['Bank Rental — request quote',null],['EXP Services — request quote',null],['Tracker Accounts — request quote',null],['Other Services — request quote',null]];
-const $=id=>document.getElementById(id),cash=n=>'$'+n.toFixed(2);let cart=[];
-services.forEach((s,i)=>{const o=document.createElement('option');o.value=i;o.textContent=s[0]+(s[1]===null?' — ask for price':' — '+cash(s[1]));$('service').appendChild(o)});
-function renderCart(){const el=$('cart');if(!cart.length){el.textContent='No items added yet.';$('total').textContent='$0.00';return}el.innerHTML='';let total=0;cart.forEach((it,i)=>{if(it.price!==null)total+=it.price*it.qty;const row=document.createElement('div');row.className='row';const d=document.createElement('div');const name=document.createElement('b');name.textContent=it.name;const detail=document.createElement('div');detail.className='small';detail.textContent='Qty: '+it.qty+' · '+(it.price===null?'price to confirm':cash(it.price*it.qty));d.append(name,detail);const b=document.createElement('button');b.className='secondary';b.textContent='Remove';b.onclick=()=>{cart.splice(i,1);renderCart()};row.append(d,b);el.appendChild(row)});$('total').textContent=cash(total)+(cart.some(x=>x.price===null)?' + quote':'')}
-document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const i=services.findIndex(s=>s[0]===b.dataset.service);if(i>=0){$('service').value=i;$('order').scrollIntoView({behavior:'smooth'})}});
-$('addItem').onclick=()=>{const i=+$('service').value;if($('service').value===''||!services[i])return alert('Please choose a service first.');cart.push({name:services[i][0],price:services[i][1],qty:Math.max(1,Math.floor(+$('qty').value||1))});renderCart()};
-$('clear').onclick=()=>{cart=[];renderCart()};
-$('send').onclick=()=>{if(!cart.length)return alert('Add at least one item first.');const items=cart.map(x=>'- '+x.name+' × '+x.qty+': '+(x.price===null?'price to confirm':cash(x.price*x.qty)));const total=cart.reduce((a,x)=>a+(x.price===null?0:x.price*x.qty),0);const msg='Hello Ultimate Kingdom Supply HUB! I would like to place an order:\\n\\n'+items.join('\\n')+'\\n\\nEstimated subtotal: '+cash(total)+(cart.some(x=>x.price===null)?' (plus quoted items)':'')+'\\nKingdom: '+($('kingdom').value||'Not provided')+'\\nIGN: '+($('ign').value||'Not provided')+'\\nPreferred payment: '+$('pay').value+'\\nNotes: '+($('notes').value||'None')+'\\n\\nPlease confirm availability, final total and payment instructions before I pay.';window.open(WA+'?text='+encodeURIComponent(msg),'_blank','noopener')};
-function speed(){let s=(+$('days').value||0)*86400+(+$('hours').value||0)*3600+(+$('minutes').value||0)*60;$('speedResult').textContent=(s/86400).toLocaleString(undefined,{maximumFractionDigits:3})+' days total · '+Math.floor(s/3600)+'h '+Math.floor(s%3600/60)+'m '+s%60+'s'}['days','hours','minutes'].forEach(id=>$(id).oninput=speed);
-function gems(){$('gemResult').textContent=cash(Math.max(0,+$('gemUnits').value||0)*Math.max(0,+$('gemRate').value||0))+' estimated'}['gemUnits','gemRate'].forEach(id=>$(id).oninput=gems);
-function exp(){$('expResult').textContent=Math.max(0,(+$('expTarget').value||0)-(+ $('expCurrent').value||0)).toLocaleString()+' EXP remaining'}['expTarget','expCurrent'].forEach(id=>$(id).oninput=exp);
-function train(){let s=Math.max(0,+$('troops').value||0)*Math.max(0,+$('perTroop').value||0)/(1+Math.max(0,+$('boost').value||0)/100),d=Math.floor(s/86400);s%=86400;let h=Math.floor(s/3600);s%=3600;$('trainResult').textContent=`Estimated time: ${d} days, ${h} hours, ${Math.floor(s/60)} minutes`}['troops','perTroop','boost'].forEach(id=>$(id).oninput=train);
-$('predictGems').onclick=()=>{const col= Math.max(0,+$('colosseum').value||0)*8*30,guild=Math.max(0,+$('guildGifts').value||0)*30,monster=Math.max(0,+$('monsterGems').value||0)*30,other=Math.max(0,+$('dailyOther').value||0)*30,events=Math.max(0,+$('weeklyEvents').value||0)*30/7,trove=Math.max(0,+$('troveDeposit').value||0)*Math.max(0,+$('troveRate').value||0)/100;const total=col+guild+monster+other+events+trove;$('forecastResult').textContent=`Estimated 30-day total: ${Math.round(total).toLocaleString()} gems · Colosseum ${Math.round(col).toLocaleString()} · Guild ${Math.round(guild).toLocaleString()} · Monster ${Math.round(monster).toLocaleString()} · Other daily ${Math.round(other).toLocaleString()} · Events ${Math.round(events).toLocaleString()} · Trove return ${Math.round(trove).toLocaleString()}`};
-$('clearGems').onclick=()=>{['colosseum','guildGifts','monsterGems','dailyOther','weeklyEvents','troveDeposit','troveRate'].forEach(id=>$(id).value=0);$('forecastResult').textContent='Enter your own estimates and tap Predict.'};
-const monsterNames=['Bon Appeti','Blackwing','Gargantua','Grim Reaper','Jade Wyrm','Noceros','Queen Bee','Saberfang','Snow Beast','Terrorthorn','Voodoo Shaman','Gryphon','Hell Drider','Mecha Trojan','Frostwing','Cottageroar','Magmalord','Mega Maggot','Necrosis','Hardrox','Hoarder','Serpent Gladiator','Tidal Titan','Aquiris'];
-const physical=['Gargantua','Grim Reaper','Saberfang','Snow Beast','Terrorthorn','Gryphon','Hell Drider','Mecha Trojan','Frostwing','Cottageroar','Magmalord','Mega Maggot','Necrosis','Hardrox','Hoarder','Serpent Gladiator','Tidal Titan'];
-function drawMonsters(){const q=$('monsterSearch').value.toLowerCase();$('monsterList').innerHTML='';monsterNames.filter(n=>n.toLowerCase().includes(q)).forEach(n=>{const phys=physical.includes(n),el=document.createElement('article');el.className='monster';const h=document.createElement('h4');h.textContent=n;const tag=document.createElement('span');tag.className='tag';tag.textContent=phys?'Physical lineup planning':'Magic lineup planning';const p=document.createElement('p');p.textContent=phys?'Start by testing your strongest physical-damage heroes; check the monster’s defense and adjust after a hunt.':'Start by testing your strongest Intelligence/magic-damage heroes; check the monster’s resistance and adjust after a hunt.';const p2=document.createElement('p');p2.textContent='Suggested planning slots: 1) best matching damage hero 2) second matching damage hero 3) damage support 4) control/healing if useful 5) strongest remaining compatible hero. Exact best heroes vary by monster level, account progress and updates.';el.append(h,tag,p,p2);$('monsterList').appendChild(el)})}
-$('monsterSearch').oninput=drawMonsters;
-const commandTopics=[
-['Bank order request','Hi, I would like to request a bank transfer. IGN: [name] · Kingdom: [KD] · Resources: [split] · Amount: [amount]. Please confirm availability and fee.'],
-['Supply delivery confirmation','Order details: [IGN] · [KD] · [resource split] · [amount]. Please confirm the delivery window before starting.'],
-['Guild bank contribution','Guild bank update: [member] contributed [amount/resource] on [date]. Please update the guild record.'],
-['Resource availability check','Can you confirm current stock for [resource pack] and final price for [KD]?'],
-['Payment confirmation request','I am ready to pay for [order]. Please confirm exact amount, payment method, network and recipient details.'],
-['Order status check','Hello, checking the status of my order: [order details / time placed]. Please let me know the current status.'],
-['Guild event reminder','Reminder: [event] begins at [time + timezone]. Please prepare your account and follow guild lead instructions.'],
-['Recruitment welcome','Welcome to the guild! Please read the rules, keep your shield active when offline, and ask an R4 if you need help.']];
-const commandAreas=[
-['Account & member management',['Add a member','Remove a member','Check member status','Set member note','Find member account','List active members','Review member permissions','Update member rank']],
-['Balance & records',['Check balance','Show account history','Record deposit','Record withdrawal request','Review pending transfer','Check transaction ID','Export bank summary','Reconcile a balance']],
-['Deposits & withdrawals',['Request deposit','Confirm deposit received','Request withdrawal','Confirm withdrawal status','Cancel a pending request','Report missing deposit','Check withdrawal limits','Ask about transaction fee']],
-['Resources & bank orders',['Request resource pack','Check resource split','Confirm order quantity','Check resource stock','Request delivery time','Confirm delivery complete','Report incorrect delivery','Ask for bank rental']],
-['Security & permissions',['Check access level','Request permission review','Report suspicious activity','Confirm trusted operator','Ask about rank requirement','Review command access','Request account lock','Report possible scam']],
-['Guild operations',['Post bank announcement','Remind members of rules','Schedule bank maintenance','Report bot downtime','Ask for help from R4','Notify guild leadership','Share service availability','Close an old request']],
-['Reports & support',['Request weekly report','Request transaction summary','Report calculation issue','Ask for command syntax','Ask bot version','Request setup instructions','Report a failed command','Ask support to investigate']],
-['General help & settings',['Show help menu','Check current settings','Ask about supported currencies','Confirm payment network','Request order quote','Ask about repeat order','Ask about subscription status']]
-];
-const cmds=[...commandTopics];
-for(const [cat,items] of commandAreas) for(const item of items) cmds.push([item,cat+': '+item+'. Example request: please check [account/order/transaction] for [IGN] in [KD], and confirm the result before making any change.']);
-while(cmds.length<67)cmds.push(['Help entry '+(cmds.length+1),'General support template: Please explain the correct bot syntax for [task], required permissions and expected result before I run it.']);
-const commandList=$('commandList');
-function drawCommands(){const q=$('commandSearch').value.toLowerCase();commandList.innerHTML='';cmds.slice(0,67).filter(x=>x.join(' ').toLowerCase().includes(q)).forEach(([name,txt],i)=>{const row=document.createElement('div');row.className='row';const d=document.createElement('div');const b=document.createElement('b');b.textContent=(i+1)+'. '+name;const t=document.createElement('div');t.className='small';t.textContent=txt;d.append(b,t);const btn=document.createElement('button');btn.className='secondary';btn.textContent='Copy';btn.onclick=async()=>{try{await navigator.clipboard.writeText(txt);btn.textContent='Copied!'}catch(e){prompt('Copy this helper text:',txt)}};row.append(d,btn);commandList.appendChild(row)})}
-$('commandSearch').oninput=drawCommands;$('year').textContent=new Date().getFullYear();speed();gems();exp();train();drawMonsters();drawCommands();renderCart();
-</script></body></html>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Ultimate Kingdom Supply Hub. All rights reserved. Built for supreme alliance logistics.</p>
+    </footer>
+
+</body>
+</html>
